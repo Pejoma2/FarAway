@@ -1,8 +1,20 @@
-function PackingList() {
+import Item from "./Item"
+
+const initialItems = [
+    { id: 1, description: "Passports", quantity: 2, packed: false },
+    { id: 2, description: "Socks", quantity: 12, packed: true },
+  ];
+
+function PackingList({items, onDeleteItem}) {
     return (
         <div className="list">
-            List
-            
+
+            <ul>
+                {
+                    items.map((item) => (<Item item={item} onDeleteItem={onDeleteItem} key={item.id}/>)
+                )}
+                
+            </ul>
         </div>
     )
 }
